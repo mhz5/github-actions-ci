@@ -8,7 +8,8 @@ a:
 		-var="my_ip=$$(curl -s ifconfig.me)"
 
 d:
-	terraform -chdir=tf destroy -auto-approve
+	terraform -chdir=tf destroy -auto-approve \
+		-var="my_ip=$$(curl -s ifconfig.me)"
 
 ssh: instanceip
 	$$(echo "ssh -i ~/.ssh/github-runner-key ubuntu@$$(cat .vm-ip) -o StrictHostKeyChecking=no")
