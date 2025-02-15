@@ -2,3 +2,4 @@
 .terraform*
 .vm-ip
 actions-runner
+terraform.tfvars

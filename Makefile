@@ -5,11 +5,9 @@ instanceip:
 a:
 	terraform -chdir=tf apply -auto-approve \
 		-var="github_token=$$(cat ~/.github-token)" \
-		-var="my_ip=$$(curl -s ifconfig.me)"
 
 d:
-	terraform -chdir=tf destroy -auto-approve \
-		-var="my_ip=$$(curl -s ifconfig.me)"
+	terraform -chdir=tf destroy -auto-approve
 
 ssh: instanceip
 	$$(echo "ssh -i ~/.ssh/github-runner-key ubuntu@$$(cat .vm-ip) -o StrictHostKeyChecking=no")
