@@ -74,7 +74,7 @@ resource "aws_security_group" "github_runner_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Restrict this to your IP in production
+    cidr_blocks = ["${var.my_ip}/32"] # Restrict this to your IP in production
   }
 
   egress {

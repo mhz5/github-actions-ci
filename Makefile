@@ -4,7 +4,8 @@ instanceip:
 
 a:
 	terraform -chdir=tf apply -auto-approve \
-		-var="github_token=$$(cat ~/.github-token)"
+		-var="github_token=$$(cat ~/.github-token)" \
+		-var="my_ip=$$(curl -s ifconfig.me)"
 
 d:
 	terraform -chdir=tf destroy -auto-approve
